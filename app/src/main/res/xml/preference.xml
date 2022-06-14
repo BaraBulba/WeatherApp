@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <EditTextPreference>
+
+    </EditTextPreference>
+    <PreferenceCategory
+        android:title="Weather Location">
+        <SwitchPreference
+            android:key="USE_DEVICE_LOCATION"
+            android:title="Use Device Location"
+            android:summary="Allow the App to get your Location"
+            android:defaultValue="true"
+            android:disableDependentsState="true">
+        </SwitchPreference>
+        <EditTextPreference
+            android:key="CUSTOM_LOCATION"
+            android:title="Location"
+            android:summary="The location for which the weather is displayed"
+            android:defaultValue="Kiev"
+            android:dependency="USE_DEVICE_LOCATION">
+        </EditTextPreference>
+        <PreferenceCategory
+            android:title="Units">
+            <ListPreference
+                android:key="UNIT_SYSTEM"
+                android:title="Unit System"
+                app:useSimpleSummaryProvider="true"
+                android:defaultValue="METRIC"
+                android:entries="@array/unitSystemEntries"
+                android:entryValues="@array/unitSystemValues">
+            </ListPreference>
+        </PreferenceCategory>
+    </PreferenceCategory>
+</PreferenceScreen>
